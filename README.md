@@ -12,3 +12,8 @@ Currently, two official plugins are available:
 - sweetalert2
 - react-hot-toast
 - react-lottie
+
+### Tailwind Laibarys
+
+- Shadcn
+- Mamba UI
