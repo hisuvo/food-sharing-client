@@ -3,7 +3,6 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import registerAnimation from "../../assets/register.json";
-import toast from "react-hot-toast";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
@@ -63,8 +62,11 @@ export default function Register() {
       });
       navigate("/");
     } catch (err) {
-      console.log(err);
-      toast.error(err?.message);
+      Swal.fire({
+        title: ` ${err.code}`,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
     }
   };
 
@@ -72,12 +74,15 @@ export default function Register() {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithGoogle();
-      toast.success("Signin Successful");
+      Swal.fire({
+        title: "Signin Successful",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
       navigate("/");
     } catch (err) {
-      toast.error(err?.message);
       Swal.fire({
-        title: ` ${err.message}`,
+        title: ` ${err.code}`,
         icon: "error",
         confirmButtonText: "OK",
       });
