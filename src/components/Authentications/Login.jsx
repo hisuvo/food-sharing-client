@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import logo from "../../assets/logo.png";
 import loginAnimation from "../../assets/login.json";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const { signIn, signInWithGoogle } = useContext(AuthContext);
+  const location = useLocation();
   const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
@@ -30,8 +31,7 @@ export default function Login() {
         icon: "success",
         title: `Signin Successfull`,
       });
-      // navigate(from, { replace: true });
-      navigate("/");
+      navigate(`${location.state || "/"}`);
     } catch (err) {
       Swal.fire({
         icon: "error",
@@ -48,8 +48,7 @@ export default function Login() {
         icon: "success",
         title: `Signin Successfull`,
       });
-      // navigate(from, { replace: true });
-      navigate("/");
+      navigate(`${location.state || "/"}`);
     } catch (err) {
       Swal.fire({
         icon: "error",
@@ -64,7 +63,7 @@ export default function Login() {
           <Lottie animationData={loginAnimation} />
         </div>
 
-        <div className="w-full px-6 py-8 md:px-8 lg:w-1/2 relative">
+        <div className="w-fullpx-6 py-8 md:px-8 lg:w-1/2 relative">
           <div className="flex justify-center mx-auto">
             <img className="w-auto h-7 sm:h-8" src={logo} alt="" />
           </div>

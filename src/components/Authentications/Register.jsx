@@ -26,6 +26,7 @@ export default function Register() {
     const email = form.email.value;
     const pass = form.password.value;
 
+    // Validation here
     /*
 
     if (name === "") {
@@ -74,8 +75,7 @@ export default function Register() {
       toast.success("Signin Successful");
       navigate("/");
     } catch (err) {
-      console.log(err);
-      // toast.error(err?.message);
+      toast.error(err?.message);
       Swal.fire({
         title: ` ${err.message}`,
         icon: "error",
@@ -229,7 +229,7 @@ export default function Register() {
             <span className="w-1/5 border-b  md:w-1/4"></span>
           </div>
         </div>
-        <div className="hidden bg-cover bg-center bg-sky-50 lg:block lg:w-1/2">
+        <div className="hidden bg-cover bg-center bg-teal-950 lg:block lg:w-1/2">
           <Lottie animationData={registerAnimation} />
         </div>
       </div>

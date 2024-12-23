@@ -3,7 +3,6 @@ import logo from "../assets/logo.png";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProviders";
 
-// import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   // logOut();
@@ -13,7 +12,6 @@ const Navbar = () => {
         <Link to="/" className="flex flex-col md:flex-row gap-2 items-center">
           <img className="w-auto h-7 sm:h-8" src={logo} alt="" />
           <h1 className="font-bold text-xl">Food</h1>
-          {/* <h1 className="font-bold text-xl">Donate</h1> */}
         </Link>
       </div>
       <div className="flex-none">
@@ -22,7 +20,7 @@ const Navbar = () => {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <Link to="/">Available Foods</Link>
+            <Link to="/availableFood">Available Foods</Link>
           </li>
 
           {!user && (
@@ -66,11 +64,9 @@ const Navbar = () => {
                 <Link to="/">My Food Request</Link>
               </li>
               <li className="mt-2">
-                {/* <NavLink to={"/login"}> */}
                 <NavLink to={"/login"} onClick={logOut} className="block">
                   Logout
                 </NavLink>
-                {/* </NavLink> */}
               </li>
             </ul>
           </div>
