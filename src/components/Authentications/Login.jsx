@@ -1,23 +1,61 @@
 import Lottie from "lottie-react";
 import logo from "../../assets/logo.png";
 import loginAnimation from "../../assets/login.json";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../providers/AuthProviders";
+import Swal from "sweetalert2";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
 
-  const handleSignIn = (e) => {
+  // Email and password Sign In
+  const handleSignIn = async (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
-    const password = form.password.value;
-    console.log({ email, password });
+    const pass = form.password.value;
+
+    try {
+      //User Login
+      await signIn(email, pass);
+      Swal.fire({
+        icon: "success",
+        title: `Signin Successfull`,
+      });
+      // navigate(from, { replace: true });
+      navigate("/");
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        title: `${err?.code}`,
+      });
+    }
+  };
+
+  // Google Signin
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithGoogle();
+      Swal.fire({
+        icon: "success",
+        title: `Signin Successfull`,
+      });
+      // navigate(from, { replace: true });
+      navigate("/");
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        title: `${err?.code}`,
+      });
+    }
   };
   return (
     <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12">
@@ -36,7 +74,7 @@ export default function Login() {
           </p>
 
           <div
-            // onClick={handleGoogleSignIn}
+            onClick={handleGoogleSignIn}
             className="flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 "
           >
             <div className="px-4 py-2">

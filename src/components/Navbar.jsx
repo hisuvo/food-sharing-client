@@ -66,11 +66,11 @@ const Navbar = () => {
                 <Link to="/">My Food Request</Link>
               </li>
               <li className="mt-2">
-                <Link>
-                  <button onClick={logOut} className="block text-center">
-                    Logout
-                  </button>
-                </Link>
+                {/* <NavLink to={"/login"}> */}
+                <NavLink to={"/login"} onClick={logOut} className="block">
+                  Logout
+                </NavLink>
+                {/* </NavLink> */}
               </li>
             </ul>
           </div>
