@@ -2,8 +2,23 @@ import Lottie from "lottie-react";
 import logo from "../../assets/logo.png";
 import loginAnimation from "../../assets/login.json";
 import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
 
 export default function Login() {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log({ email, password });
+  };
   return (
     <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12">
       <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl ">
@@ -11,7 +26,7 @@ export default function Login() {
           <Lottie animationData={loginAnimation} />
         </div>
 
-        <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
+        <div className="w-full px-6 py-8 md:px-8 lg:w-1/2 relative">
           <div className="flex justify-center mx-auto">
             <img className="w-auto h-7 sm:h-8" src={logo} alt="" />
           </div>
@@ -60,8 +75,7 @@ export default function Login() {
             <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
           </div>
 
-          <form>
-            {/* onSubmit={handleSignIn} */}
+          <form onSubmit={handleSignIn}>
             <div className="mt-4">
               <label
                 className="block mb-2 text-sm font-medium text-gray-600 "
@@ -93,7 +107,7 @@ export default function Login() {
                 autoComplete="current-password"
                 name="password"
                 className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300"
-                type="password"
+                type={showPassword ? "text" : "password"}
               />
             </div>
             <div className="mt-6">
@@ -105,6 +119,13 @@ export default function Login() {
               </button>
             </div>
           </form>
+
+          <button
+            onClick={togglePasswordVisibility}
+            className="p-3 active:scale-50 absolute rounded-md bottom-[133px] right-8"
+          >
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </button>
 
           <div className="flex items-center justify-between mt-4">
             <span className="w-1/5 border-b  md:w-1/4"></span>
