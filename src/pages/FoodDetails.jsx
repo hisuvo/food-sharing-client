@@ -45,7 +45,7 @@ export default function FoodDetails() {
       status: "requested",
       donor,
       requestDate: `${moment().format("L, LT")}`,
-      requestEmail: user?.eamil,
+      requestEmail: user?.email,
     };
 
     // post request date in server
@@ -55,7 +55,7 @@ export default function FoodDetails() {
         requestData
       );
       toast.success("Your request done");
-      navigate("/");
+      navigate("/myRequestFood");
     } catch (error) {
       toast.error(`${error?.code}`);
     }

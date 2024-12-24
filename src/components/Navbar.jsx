@@ -58,10 +58,7 @@ const Navbar = () => {
                 <Link to="/">Manages My Food</Link>
               </li>
               <li>
-                <Link to="/">My Bids</Link>
-              </li>
-              <li>
-                <Link to="/">My Food Request</Link>
+                <Link to="/myRequestFood">My Food Request</Link>
               </li>
               <li className="mt-2">
                 <NavLink to={"/login"} onClick={logOut} className="block">
