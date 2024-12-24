@@ -13,7 +13,7 @@ Currently, two official plugins are available:
 - react-hot-toast
 - react-lottie
 - Datepicker
--
+- axios
 
 ### Tailwind Laibarys
 

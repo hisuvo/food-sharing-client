@@ -15,8 +15,6 @@ export default function AvailableFoods() {
     fetchDate();
   }, []);
 
-  console.log(foods);
-
   return (
     <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
       {/* search and sort */}
@@ -28,7 +26,7 @@ export default function AvailableFoods() {
             id="category"
             className="border p-4 rounded-md"
           >
-            <option value="">Sort By Deadline</option>
+            <option value="">Sort By Expire Date</option>
             <option value="dsc">Descending Order</option>
             <option value="asc">Ascending Order</option>
           </select>
@@ -55,7 +53,7 @@ export default function AvailableFoods() {
           <TfiReload />{" "}
         </button>
       </div>
-
+      {/* available food cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {foods.map(
           (food) =>

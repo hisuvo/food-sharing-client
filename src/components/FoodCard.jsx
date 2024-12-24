@@ -2,16 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function FoodCard({ food }) {
-  const {
-    _id,
-    name,
-    image,
-    quantity,
-    pickupLocation,
-    expiredDateTime,
-    additionalNotes,
-    status,
-  } = food;
+  const { _id, name, img, quantity, location, unit, expireDate, note, donor } =
+    food;
+  console.log(food);
+
   return (
     <>
       {/* {availability && ( */}
@@ -21,10 +15,10 @@ export default function FoodCard({ food }) {
         </figure>
         <div className="flex-grow space-y-3 my-4">
           <h2 className="text-xl uppercase ">{name}</h2>
-          <p className="text-base font-light"> {pickupLocation} </p>
+          <p className="text-base font-light"> {location} </p>
           <div className="flex justify-between items-center">
             <h4 className="font-semibold">{quantity} kg</h4>
-            <h4 className="font-semibold">{expiredDateTime}</h4>
+            <h4 className="font-semibold">{expireDate}</h4>
           </div>
         </div>
         <Link to={`/foodDetails/${_id}`} className="btn">

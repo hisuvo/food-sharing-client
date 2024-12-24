@@ -1,21 +1,52 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import donateFoodImg from "../assets/add-food.jpg";
 import DatePicker from "react-datepicker";
+import { AuthContext } from "../providers/AuthProviders";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function AddFoods() {
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState("");
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleFoodDonate = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-    const photo = form.photo.value;
-    const quntaty = form.quntaty.value;
+    const img = form.photo.value;
+    const quantity = form.quntaty.value;
+    const location = form.location.value;
     const unit = form.unit.value;
     const date = startDate;
     const note = form.note.value;
 
-    const foodData = { name, photo, quntaty, unit, date, note };
+    const foodData = {
+      name,
+      img,
+      quantity,
+      location,
+      unit,
+      expireDate: date.toLocaleString(),
+      note,
+      donor: {
+        name: user?.displayName,
+        email: user?.email,
+        img: user?.photoURL,
+      },
+      status: "Available",
+    };
+
+    // Add Donte Food in server
+    try {
+      axios.post(`${import.meta.env.VITE_API_URL}/add-foods`, foodData);
+      toast.success("Food Donate Success");
+      navigate("/availableFood");
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
   };
 
   return (
@@ -36,6 +67,7 @@ export default function AddFoods() {
             onSubmit={handleFoodDonate}
             className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3"
           >
+            {/* Food name */}
             <div className="col-span-full sm:col-span-3">
               <label htmlFor="name" className="text-sm">
                 Name
@@ -48,7 +80,7 @@ export default function AddFoods() {
                 className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
               />
             </div>
-
+            {/* Food Photo */}
             <div className="col-span-full sm:col-span-3">
               <label htmlFor="lastname" className="text-sm">
                 Photo
@@ -61,7 +93,7 @@ export default function AddFoods() {
                 className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
               />
             </div>
-
+            {/* Food Quntaty */}
             <div className="col-span-full sm:col-span-3">
               <label htmlFor="quntay" className="text-sm">
                 Quntaty
@@ -69,7 +101,7 @@ export default function AddFoods() {
               <div className="relative">
                 <input
                   id="quntaty"
-                  type="text"
+                  type="number"
                   name="quntaty"
                   placeholder="Food Quantaty here"
                   className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
@@ -79,7 +111,9 @@ export default function AddFoods() {
                   name="unit"
                   className="absolute bottom-0 right-0 border-none p-4 bg-transparent"
                 >
-                  <option disabled>Unit</option>
+                  <option disabled value="">
+                    Unit
+                  </option>
                   <option value="kg">kg</option>
                   <option value="g">gram</option>
                   <option value="ltr">ltr</option>
@@ -88,7 +122,7 @@ export default function AddFoods() {
                 </select>
               </div>
             </div>
-
+            {/* Pickup Location */}
             <div className="col-span-full sm:col-span-3">
               <label htmlFor="text" className="text-sm">
                 Pickup Location
@@ -100,7 +134,7 @@ export default function AddFoods() {
                 className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
               />
             </div>
-
+            {/* Expired Date */}
             <div className="col-span-full sm:col-span-3">
               <label htmlFor="date/time" className="text-sm">
                 Expired Date/Time
@@ -108,12 +142,14 @@ export default function AddFoods() {
               <div>
                 <DatePicker
                   selected={startDate}
+                  showTimeSelect
+                  dateFormat="Pp"
                   onChange={(date) => setStartDate(date)}
                   className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
                 />
               </div>
             </div>
-
+            {/* Additional notes */}
             <div className="col-span-full">
               <label htmlFor="additionalnote" className="text-sm">
                 Additional Notes
