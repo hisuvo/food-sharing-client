@@ -13,9 +13,11 @@ Currently, two official plugins are available:
 - react-hot-toast
 - react-lottie
 - Datepicker
+- moment.js
 - axios
 
 ### Tailwind Laibarys
 
 - Shadcn
 - Mamba UI
+- DaisyUi
