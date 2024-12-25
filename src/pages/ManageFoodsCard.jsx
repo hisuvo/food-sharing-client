@@ -1,7 +1,7 @@
 import React from "react";
 
-export default function ManageFoodsCard({ food }) {
-  const { name, img, location, expireDate, note, status } = food;
+export default function ManageFoodsCard({ food, handleRenove }) {
+  const { _id, name, img, location, expireDate, note } = food;
   const x = {
     _id: "676af077b6d783af8aeeadd0",
     name: "Fruites",
@@ -48,7 +48,10 @@ export default function ManageFoodsCard({ food }) {
           <button className="btn btn-xs text-white bg-green-500 hover:bg-green-600">
             Upload
           </button>{" "}
-          <button className="btn btn-xs text-white bg-red-500 hover:bg-red-600">
+          <button
+            onClick={() => handleRenove(_id)}
+            className="btn btn-xs text-white bg-red-500 hover:bg-red-600"
+          >
             Delete
           </button>
         </th>
