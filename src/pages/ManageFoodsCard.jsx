@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function ManageFoodsCard({ food, handleRenove }) {
   const { _id, name, img, location, expireDate, note } = food;
@@ -45,9 +46,12 @@ export default function ManageFoodsCard({ food, handleRenove }) {
         </td>
         <td>{expireDate}</td>
         <th>
-          <button className="btn btn-xs text-white bg-green-500 hover:bg-green-600">
+          <Link
+            to={`/foodUpdate/${_id}`}
+            className="btn btn-xs text-white bg-green-500 hover:bg-green-600"
+          >
             Upload
-          </button>{" "}
+          </Link>{" "}
           <button
             onClick={() => handleRenove(_id)}
             className="btn btn-xs text-white bg-red-500 hover:bg-red-600"

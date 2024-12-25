@@ -1,17 +1,35 @@
-import { useContext, useState } from "react";
-import donateFoodImg from "../assets/add-food.jpg";
-import DatePicker from "react-datepicker";
-import { AuthContext } from "../providers/AuthProviders";
 import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import DatePicker from "react-datepicker";
+import { useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProviders";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 
-export default function AddFoods() {
-  const [startDate, setStartDate] = useState("");
+export default function FoodsUpdate() {
+  const [startDate, setStartDate] = useState(new Date());
+  const [food, setFood] = useState({});
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { id } = useParams();
 
-  const handleFoodDonate = (e) => {
+  useEffect(() => {
+    fetchUpdateFood();
+  }, [id]);
+
+  // fetch food from server fon update
+  const fetchUpdateFood = async () => {
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_API_URL}/foods/${id}`
+    );
+    setFood(data);
+    setStartDate(new Date(data.expireDate));
+  };
+
+  const { name, img, quantity, location, unit, expireDate, note, status } =
+    food;
+
+  //  Update handler
+  const handleUpdateFood = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -35,37 +53,34 @@ export default function AddFoods() {
         email: user?.email,
         img: user?.photoURL,
       },
-      status: "Available",
+      status: status,
     };
 
-    // Add Donte Food in server
+    // // Update Donte Food in server
     try {
-      axios.post(`${import.meta.env.VITE_API_URL}/add-foods`, foodData);
-      toast.success("Food Donate Success");
+      // make a put request
+      axios.put(`${import.meta.env.VITE_API_URL}/update-foods/${id}`, foodData);
+      //   form reset
+      form.reset();
+      toast.success("Food Update Successfully");
       navigate("/availableFood");
     } catch (error) {
       console.log(error);
       toast.error(error.message);
     }
+    console.log(foodData);
   };
 
   return (
-    <section className="p-6 dark:bg-gray-100 dark:text-gray-900">
-      <div className="container flex flex-col mx-auto space-y-12">
+    <section className="p-6 dark:bg-gray-100  dark:text-gray-900">
+      <div className="max-w-[43rem] flex flex-col mx-auto space-y-12">
         <div className="grid grid-cols-4 gap-10 p-6 rounded-md shadow-sm dark:bg-gray-50">
-          <div className="space-y-2 col-span-full lg:col-span-1">
-            <p className="font-medium text-2xl">Add Donate Foods</p>
-            <p className="text-xs">
-              Share surplus food to help those in need. Fill out the form to
-              donate.
-            </p>
-            <div className="hidden lg:block">
-              <img src={donateFoodImg} alt="" />
-            </div>
+          <div className="col-span-full">
+            <p className="font-medium text-2xl">Update Donate Foods</p>
           </div>
           <form
-            onSubmit={handleFoodDonate}
-            className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3"
+            onSubmit={handleUpdateFood}
+            className="grid grid-cols-6 gap-4 col-span-full"
           >
             {/* Food name */}
             <div className="col-span-full sm:col-span-3">
@@ -76,6 +91,7 @@ export default function AddFoods() {
                 id="firstname"
                 type="text"
                 name="name"
+                defaultValue={name}
                 placeholder="Food name here"
                 className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
               />
@@ -89,6 +105,7 @@ export default function AddFoods() {
                 id="photo"
                 type="url"
                 name="photo"
+                defaultValue={img}
                 placeholder="Image url here"
                 className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
               />
@@ -103,23 +120,26 @@ export default function AddFoods() {
                   id="quntaty"
                   type="number"
                   name="quntaty"
+                  defaultValue={quantity}
                   placeholder="Food Quantaty here"
                   className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
                 />
-                <select
-                  defaultValue={"Unit"}
-                  name="unit"
-                  className="absolute bottom-0 right-0 border-none p-4 bg-transparent"
-                >
-                  <option disabled value="">
-                    Unit
-                  </option>
-                  <option value="kg">kg</option>
-                  <option value="g">gram</option>
-                  <option value="ltr">ltr</option>
-                  <option value="pac">pac</option>
-                  <option value="pic">Pic</option>
-                </select>
+                {quantity && (
+                  <select
+                    defaultValue={unit}
+                    name="unit"
+                    className="absolute bottom-0 right-0 border-none p-4 bg-transparent"
+                  >
+                    <option disabled value="">
+                      Unit
+                    </option>
+                    <option value="kg">kg</option>
+                    <option value="g">gram</option>
+                    <option value="ltr">ltr</option>
+                    <option value="pac">pac</option>
+                    <option value="pic">Pic</option>
+                  </select>
+                )}
               </div>
             </div>
             {/* Pickup Location */}
@@ -130,6 +150,7 @@ export default function AddFoods() {
               <input
                 type="text"
                 name="location"
+                defaultValue={location}
                 placeholder="Location"
                 className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
               />
@@ -144,7 +165,7 @@ export default function AddFoods() {
                   selected={startDate}
                   showTimeSelect
                   dateFormat="Pp"
-                  onChange={(date) => setStartDate(date)}
+                  onChange={(data) => setStartDate(data)}
                   className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
                 />
               </div>
@@ -158,12 +179,13 @@ export default function AddFoods() {
                 id="note"
                 type="text"
                 name="note"
+                defaultValue={note}
                 placeholder=""
                 className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
               />
             </div>
             <button className="px-8 py-3 col-span-full active:bg-gray-800/90 font-semibold rounded dark:bg-gray-800 dark:text-gray-100">
-              Add Donate Food
+              Update Food
             </button>
           </form>
         </div>
