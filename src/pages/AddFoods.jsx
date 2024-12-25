@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 export default function AddFoods() {
-  const [startDate, setStartDate] = useState("");
+  const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ export default function AddFoods() {
       quantity,
       location,
       unit,
-      expireDate: date.toLocaleString(),
+      expireDate: startDate,
       note,
       donor: {
         name: user?.displayName,
@@ -143,7 +143,7 @@ export default function AddFoods() {
                 <DatePicker
                   selected={startDate}
                   showTimeSelect
-                  dateFormat="Pp"
+                  dateFormat="P"
                   onChange={(date) => setStartDate(date)}
                   className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
                 />
