@@ -22,18 +22,16 @@ export default function MyRequestFood() {
     fetchRequestedFood();
   }, []);
 
-  console.log(requestedFoods);
-
   return (
-    <div className="container mx-auto my-4">
-      <div className="my-2 flex items-center gap-1">
+    <div className="container mx-auto md:px-2">
+      <div className="my-2 md:my-6 flex items-center gap-1">
         <h4 className="text-base font-bold ">My Requested Foods</h4>
         <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
           {requestedFoods.length} request
         </span>
       </div>
-      <div className="overflow-x-auto">
-        <table className="table table-xs border">
+      <div className="overflow-x-auto border p-2 md:p-4 shadow-sm">
+        <table className="table table-xs">
           <thead>
             <tr>
               <th></th>

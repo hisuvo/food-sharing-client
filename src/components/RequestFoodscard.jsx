@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function RequestFoodscard({ requestFood }) {
-  console.log(requestFood);
   const {
     name,
     img,
@@ -14,23 +13,6 @@ export default function RequestFoodscard({ requestFood }) {
     requestEmail,
   } = requestFood;
 
-  const x = {
-    _id: "676b1dac3223d80e2c37742f",
-    foodId: "676af669b6d783af8aeeadd1",
-    name: "Kiara",
-    img: "https://i.ibb.co.com/0njsp1c/Project-Cover.png",
-    location: "Quae nihil rerum exp",
-    expireDate: "12/24/2024, 11:00:00 PM",
-    note: "Dramatically facilitate ubiquitous e-services rather than frictionless niches. Synergistically customize vertical infrastructures through multifunctional experiences. Quickly disseminate.",
-    status: "requested",
-    donor: {
-      name: "SUVO DATTA",
-      email: "suvodatta72@gmail.com",
-      img: "https://lh3.googleusercontent.com/a/ACg8ocJeFf16RfSbhWE0tYmf0MEmvEowUBzq8wKOAR7VYbXNgGb1TxQ=s96-c",
-    },
-    requestDate: "12/25/2024, 2:46 AM",
-    requestEmail: "root@gmail.com",
-  };
   return (
     <>
       <tr>
