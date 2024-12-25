@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import donateFoodImg from "../assets/add-food.jpg";
+import donateFoodImg from "../assets/add-food.jpeg";
 import DatePicker from "react-datepicker";
 import { AuthContext } from "../providers/AuthProviders";
 import axios from "axios";
@@ -60,7 +60,7 @@ export default function AddFoods() {
               donate.
             </p>
             <div className="hidden lg:block">
-              <img src={donateFoodImg} alt="" />
+              <img className="rounded-md" src={donateFoodImg} alt="" />
             </div>
           </div>
           <form

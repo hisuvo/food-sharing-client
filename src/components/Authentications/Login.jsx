@@ -6,6 +6,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -44,6 +45,7 @@ export default function Login() {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithGoogle();
+
       Swal.fire({
         icon: "success",
         title: `Signin Successfull`,

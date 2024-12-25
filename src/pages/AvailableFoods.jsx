@@ -31,7 +31,7 @@ export default function AvailableFoods() {
   };
 
   return (
-    <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
+    <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)]">
       {/* search and sort */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 mb-4 md:mb-8 ">
         <button onClick={handleLaout} className="btn">
@@ -76,8 +76,8 @@ export default function AvailableFoods() {
       </div>
       {/* available food cards */}
       <div
-        className={`grid grid-cols-1 md:grid-cols-2 ${
-          layout ? "lg:grid-cols-3" : "lg:grid-cols-2"
+        className={`grid grid-cols-1  ${
+          layout ? "md:grid-cols-3" : "md:grid-cols-2"
         }  gap-4`}
       >
         {foods.map(
