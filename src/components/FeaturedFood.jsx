@@ -8,9 +8,7 @@ export default function FeaturedFood() {
 
   useEffect(() => {
     const fetchFeaturedFood = async () => {
-      const { data } = await axios.get(
-        `https://food-sharing-server-gamma.vercel.app/feature-foods`
-      );
+      const { data } = await axios.get(`http://localhost:9500/feature-foods`);
       //   here sort food featured data base on quantity
       const sortData = data.sort((a, b) => b.quantity - a.quantity);
       setFeaturedFood(sortData);

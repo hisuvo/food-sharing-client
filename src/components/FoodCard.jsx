@@ -18,7 +18,7 @@ export default function FoodCard({ food }) {
           />
         </figure>
         <div className="flex-grow space-y-3 my-4">
-          <h2 className="text-xl uppercase ">{name}</h2>
+          <h2 className="text-xl font-mono">{name}</h2>
           <p className="text-base font-light"> {location} </p>
           <div className="flex justify-between items-center">
             <h4 className="font-semibold">{quantity} kg</h4>
@@ -32,8 +32,11 @@ export default function FoodCard({ food }) {
             }
           </div>
         </div>
-        <Link to={`/foodDetails/${_id}`} className="btn">
-          view Details
+        <Link
+          to={`/foodDetails/${_id}`}
+          className="px-8 text-center py-3 font-semibold rounded dark:bg-gray-800 dark:text-gray-100 outline-black outline-offset-2 outline-double active:outline-double active:outline-offset-4"
+        >
+          <button>view Details</button>
         </Link>
       </div>
     </>
