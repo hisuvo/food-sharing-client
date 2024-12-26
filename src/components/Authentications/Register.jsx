@@ -6,6 +6,7 @@ import registerAnimation from "../../assets/register.json";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -26,7 +27,6 @@ export default function Register() {
     const pass = form.password.value;
 
     // Validation here
-    /*
 
     if (name === "") {
       return toast.error(`Name is undefined`);
@@ -35,7 +35,7 @@ export default function Register() {
     // Photo url valid
     const regexurl = /^(https?:\/\/)?([a-zA-Z0-9.-]+)\.([a-zA-Z]{2,})(\/\S*)?$/;
     if (!regexurl.test(photo)) {
-      return toast.error(`Url is undefined`);
+      return toast.error(`Photo url is not valid`);
     }
 
     // Password validation
@@ -45,7 +45,6 @@ export default function Register() {
         "Password must have at least one lowercase letter, one uppercase letter, and be at least 6 characters long."
       );
     }
-*/
 
     console.log({ name, email, pass, photo });
     // Sing UP

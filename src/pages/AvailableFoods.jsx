@@ -58,7 +58,7 @@ export default function AvailableFoods() {
   return (
     <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)]">
       {/* search and sort */}
-      <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 mb-4 md:mb-8 ">
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-2 md:gap-4 mb-4 md:mb-8 ">
         <button onClick={handleLaout} className="btn">
           Chanlge Layout
         </button>
@@ -84,13 +84,9 @@ export default function AvailableFoods() {
             name="search"
             onChange={(e) => setSearch(e.target.value)}
             value={search}
-            placeholder="Enter Food Name"
+            placeholder="Search Food By Name"
             aria-label="Enter Food Name"
           />
-
-          <button className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
-            Search
-          </button>
         </div>
 
         {/* Reset */}
@@ -99,6 +95,7 @@ export default function AvailableFoods() {
           <TfiReload />{" "}
         </button>
       </div>
+
       {/* available food cards */}
       <div
         className={`grid grid-cols-1  ${
@@ -112,9 +109,10 @@ export default function AvailableFoods() {
             )
         )}
       </div>
+
       {/* Pagination */}
-      <div className="flex justify-center items-center gap-4">
-        <div className="text-center space-x-6 my-4 md:my-8">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+        <div className="text-center flex gap-4 my-4 md:my-8">
           {/* previous btn */}
           <button
             onClick={handlePrevPage}
@@ -130,7 +128,7 @@ export default function AvailableFoods() {
                 currentPage === page
                   ? "dark:text-gray-800 bg-gray-100"
                   : " dark:bg-gray-800 dark:text-gray-100 "
-              } px-8 py-3 font-semibold rounded outline-black outline-offset-2 outline-double active:outline-double active:outline-offset-4`}
+              } hidden md:block px-8 py-3 font-semibold rounded outline-black outline-offset-2 outline-double active:outline-double active:outline-offset-4`}
               key={index}
             >
               {page}

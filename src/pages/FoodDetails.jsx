@@ -6,9 +6,11 @@ import Swal from "sweetalert2";
 import { FaRegWindowClose } from "react-icons/fa";
 import moment from "moment";
 import toast from "react-hot-toast";
+import DatePicker from "react-datepicker";
 
 export default function FoodDetails() {
   const [food, setFood] = useState({});
+  const [startDate, setStartDate] = useState(new Date());
   const [additionalNote, setAdditionalNote] = useState("");
   const { user } = useContext(AuthContext);
   const { id } = useParams();
@@ -22,6 +24,7 @@ export default function FoodDetails() {
           `https://food-sharing-server-gamma.vercel.app/foods/${id}`
         );
         setFood(data);
+        setStartDate(data.expireDate);
       } catch (error) {
         Swal.fire({
           title: `${error?.message}`,
@@ -63,51 +66,68 @@ export default function FoodDetails() {
 
   return (
     <div className="container mx-auto relative ">
-      <div className=" max-w-[750px] mx-auto border p-4">
-        {/* Food Image */}
-        <div>
-          <label className="block font-medium">Food Image</label>
-          <img
-            src={food.img}
-            alt={food.name}
-            className="w-full h-36 object-cover rounded"
-          />
-        </div>
-        <div className="flex justify-between items-center">
+      {/*----------------- */}
+      <div className="max-w-[950px] mx-auto grid grid-cols-12 md:gap-8 p-6 border">
+        {/* donor information */}
+        <div className="col-span-full md:flex flex-col justify-center md:gap-4 md:border md:bg-gray-800 md:rounded-xl md:text-white items-center md:col-span-4">
+          <figure>
+            <img
+              className="w-full h-[10rem] object-cover dark:text-gray-600"
+              src={donor?.img}
+              alt={donor?.name}
+            />
+          </figure>
           <div>
-            <div className="flex justify-start">
-              <span className="px-2 py-1 text-xs rounded-full dark:bg-yellow-600 dark:text-gray-50">
-                {status}
-              </span>
-            </div>
-            <div>
-              <h1 className="text-3xl font-semibold">{name}</h1>
-              <p className="flex-1 pt-2">{note}</p>
-            </div>
-            {/* The button to open modal */}
+            <h4 className="self-center text-lg font-mono">
+              {" "}
+              <span className="font-semibold">Neme:</span> {donor?.name}
+            </h4>
+            <h4 className="self-center text-sm">
+              {" "}
+              <span className="font-semibold">Email:</span> {donor?.email}
+            </h4>
+          </div>
+        </div>
+
+        {/* Food Details section */}
+
+        <div className="col-span-full md:col-span-8">
+          <figure>
+            <img
+              src={food.img}
+              alt={food.name}
+              className="w-full h-[14rem] object-cover rounded"
+            />
+          </figure>
+          <div className="flex justify-between items-center ">
+            <p className="self-center text-sm">
+              <span className="font-semibold">Id</span>: {_id}
+            </p>
+            <span className="px-2 py-1 text-xs rounded-full dark:bg-gray-800 dark:text-gray-50">
+              {status}
+            </span>
+          </div>
+          <div className="">
+            <h1 className="text-2xl font-semibold font-mono">{name}</h1>
+            <p className="text-xs">{note}</p>
+          </div>
+          <div className="mt-3 flex justify-between items-center">
             <label
               htmlFor="my_modal_6"
               className="btn right-0 px-8 py-3 active:bg-gray-800/90 font-semibold rounded dark:bg-gray-800 dark:text-gray-100"
             >
               Request
             </label>
-          </div>
-
-          <div className=" space-y-4">
-            <div className="flex space-x-2">
-              <div>
-                <h4 className="self-center text-sm">Neme: {donor?.name}</h4>
-                <h4 className="self-center text-sm">Email: {donor?.email}</h4>
-              </div>
-              <figure>
-                <img
-                  className="w-14 h-14 rounded-full dark:text-gray-600"
-                  src={donor?.img}
-                  alt=""
+            <h4 className="text-xl font-semibold">
+              {
+                <DatePicker
+                  disabled
+                  className="text-end bg-transparent"
+                  selected={startDate}
+                  onChange={(expireDate) => setStartDate(expireDate)}
                 />
-              </figure>
-            </div>
-            <span className=" text-xs">{expireDate}</span>
+              }
+            </h4>
           </div>
         </div>
       </div>

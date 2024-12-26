@@ -26,10 +26,10 @@ export default function DonorCards() {
   console.log(donors);
 
   return (
-    <div className="flex bg-white justify-between items-center gap-4 shadow-xl rounded-md">
+    <div className="flex  justify-between items-center">
       {donors.map((donor) => (
         <div key={donor._id}>
-          <div className="flex justify-center items-center flex-col border p-4">
+          <div className="flex justify-center bg-white border-2 items-center flex-col mx-4 p-4">
             <figure>
               <img
                 className="w-20 h-20 rounded-full"
