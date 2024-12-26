@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 
 export default function FeaturedFood() {
   const [featuredFood, setFeaturedFood] = useState([]);
+
   useEffect(() => {
     const fetchFeaturedFood = async () => {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/feature-foods`
+        `https://food-sharing-server-gamma.vercel.app/feature-foods`
       );
       //   here sort food featured data base on quantity
       const sortData = data.sort((a, b) => b.quantity - a.quantity);
@@ -17,8 +18,6 @@ export default function FeaturedFood() {
 
     fetchFeaturedFood();
   }, []);
-
-  console.log(featuredFood);
 
   return (
     <div className="my-16">

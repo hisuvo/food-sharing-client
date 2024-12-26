@@ -40,7 +40,10 @@ export default function AddFoods() {
 
     // Add Donte Food in server
     try {
-      axios.post(`${import.meta.env.VITE_API_URL}/add-foods`, foodData);
+      axios.post(
+        `https://food-sharing-server-gamma.vercel.app/add-foods`,
+        foodData
+      );
       toast.success("Food Donate Success");
       navigate("/availableFood");
     } catch (error) {

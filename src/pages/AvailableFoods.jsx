@@ -19,9 +19,7 @@ export default function AvailableFoods() {
   useEffect(() => {
     const fetchDate = async () => {
       const { data } = await axios.get(
-        `${
-          import.meta.env.VITE_API_URL
-        }/foods?search=${search}&sort=${sort}&page=${currentPage}&size=${itemPerPage}`
+        `https://food-sharing-server-gamma.vercel.app/foods?search=${search}&sort=${sort}&page=${currentPage}&size=${itemPerPage}`
       );
       setFoods(data);
     };

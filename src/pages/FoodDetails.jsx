@@ -19,7 +19,7 @@ export default function FoodDetails() {
     const fetchFood = async () => {
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_API_URL}/foods/${id}`
+          `https://food-sharing-server-gamma.vercel.app/foods/${id}`
         );
         setFood(data);
       } catch (error) {
@@ -51,7 +51,7 @@ export default function FoodDetails() {
     // post request date in server
     try {
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/request-foods`,
+        `https://food-sharing-server-gamma.vercel.app/request-foods`,
         requestData
       );
       toast.success("Your request done");

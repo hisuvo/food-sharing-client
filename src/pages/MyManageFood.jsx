@@ -11,15 +11,16 @@ export default function MyManageFood() {
 
   useEffect(() => {
     fetchManageFoods();
-  }, [user]);
+  }, []);
 
   // user email specific manage foods fetch from db
   const fetchManageFoods = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/manage-foods/${user?.email}`
+        `https://food-sharing-server-gamma.vercel.app/manage-foods/${user?.email}`
       );
       setManageFoods(data);
+      console.log(data);
     } catch (error) {
       toast.error(`${error.code}`);
     }
@@ -37,7 +38,9 @@ export default function MyManageFood() {
         confirmButtonText: "Yes, delete it!",
       }).then(async (result) => {
         if (result.isConfirmed) {
-          await axios.delete(`${import.meta.env.VITE_API_URL}/food/${id}`);
+          await axios.delete(
+            `https://food-sharing-server-gamma.vercel.app/food/${id}`
+          );
           Swal.fire({
             title: "Deleted!",
             text: "Your food has been deleted.",

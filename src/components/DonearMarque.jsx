@@ -1,5 +1,5 @@
 import Marquee from "react-fast-marquee";
-import DonorCards from "./DonorCards";
+// import DonorCards from "./DonorCards";
 
 export default function DonearMarque() {
   return (
@@ -9,9 +9,7 @@ export default function DonearMarque() {
           Our Currents <span className="bg-black text-white p-2">Donetors</span>
         </h2>
       </div>
-      <Marquee>
-        <DonorCards />
-      </Marquee>
+      <Marquee>{/* <DonorCards /> */}</Marquee>
     </div>
   );
 }

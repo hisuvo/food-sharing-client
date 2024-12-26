@@ -29,7 +29,8 @@ const router = createBrowserRouter([
             <AvailableFoods />
           </PrivateRoute>
         ),
-        loader: () => fetch(`${import.meta.env.VITE_API_URL}/foods-count`),
+        loader: () =>
+          fetch(`https://food-sharing-server-gamma.vercel.app/foods-count`),
       },
       {
         path: "/addFood",

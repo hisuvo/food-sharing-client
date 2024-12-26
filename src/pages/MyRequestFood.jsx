@@ -12,7 +12,7 @@ export default function MyRequestFood() {
     const fetchRequestedFood = async () => {
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_API_URL}/request-foods/${user?.email}`
+          `https://food-sharing-server-gamma.vercel.app/request-foods/${user?.email}`
         );
         setRequestedFoods(data);
       } catch (error) {

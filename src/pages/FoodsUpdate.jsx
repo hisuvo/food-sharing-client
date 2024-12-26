@@ -19,7 +19,7 @@ export default function FoodsUpdate() {
   // fetch food from server fon update
   const fetchUpdateFood = async () => {
     const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/foods/${id}`
+      `https://food-sharing-server-gamma.vercel.app/foods/${id}`
     );
     setFood(data);
     setStartDate(new Date(data.expireDate));
@@ -59,7 +59,10 @@ export default function FoodsUpdate() {
     // // Update Donte Food in server
     try {
       // make a put request
-      axios.put(`${import.meta.env.VITE_API_URL}/update-foods/${id}`, foodData);
+      axios.put(
+        `https://food-sharing-server-gamma.vercel.app/update-foods/${id}`,
+        foodData
+      );
       //   form reset
       form.reset();
       toast.success("Food Update Successfully");
