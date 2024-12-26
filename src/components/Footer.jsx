@@ -17,7 +17,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               href="#"
               title="Instagram"
-              className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-yellow-600 dark:text-gray-50"
+              className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-black dark:text-gray-50"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               href="#"
               title="Pinterest"
-              className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-yellow-600 dark:text-gray-50"
+              className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-black dark:text-gray-50"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               href="#"
               title="Twitter"
-              className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-yellow-600 dark:text-gray-50"
+              className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-black dark:text-gray-50"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               href="#"
               title="Facebook"
-              className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-yellow-600 dark:text-gray-50"
+              className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-black dark:text-gray-50"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               href="#"
               title="Gmail"
-              className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-yellow-600 dark:text-gray-50"
+              className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-black dark:text-gray-50"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
