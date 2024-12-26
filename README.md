@@ -15,6 +15,7 @@ Currently, two official plugins are available:
 - Datepicker
 - moment.js
 - axios
+- react-fast-marquee
 
 ### Tailwind Laibarys
 
