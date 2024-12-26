@@ -2,22 +2,31 @@ import React, { useEffect, useState } from "react";
 import FoodCard from "../components/foodCard";
 import { TfiReload } from "react-icons/tfi";
 import axios from "axios";
+import { Link, useLoaderData } from "react-router-dom";
 
 export default function AvailableFoods() {
   const [foods, setFoods] = useState([]);
   const [layout, setLayout] = useState(true);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
+  const { count } = useLoaderData();
+  const [itemPerPage, setItemPerPage] = useState(6);
+  const [currentPage, setCurrentPage] = useState(0);
+  const numberOfPage = Math.ceil(count / itemPerPage);
+
+  const pages = [...Array(numberOfPage).keys()];
 
   useEffect(() => {
     const fetchDate = async () => {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/foods?search=${search}&sort=${sort}`
+        `${
+          import.meta.env.VITE_API_URL
+        }/foods?search=${search}&sort=${sort}&page=${currentPage}&size=${itemPerPage}`
       );
       setFoods(data);
     };
     fetchDate();
-  }, [search, sort]);
+  }, [search, sort, currentPage, itemPerPage]);
 
   // handle reset
   const handleReset = () => {
@@ -28,6 +37,24 @@ export default function AvailableFoods() {
   // handle layout
   const handleLaout = () => {
     setLayout((prevState) => !prevState);
+  };
+
+  // set iteam per page handler
+  const handlePerPageItem = (item) => {
+    setItemPerPage(item);
+    setCurrentPage(0);
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < pages.length - 1) {
+      setCurrentPage(currentPage + 1);
+    }
   };
 
   return (
@@ -86,6 +113,51 @@ export default function AvailableFoods() {
               <FoodCard key={food._id} food={food} />
             )
         )}
+      </div>
+      {/* Pagination */}
+      <div className="flex justify-center items-center gap-4">
+        <div className="text-center space-x-6 my-4 md:my-8">
+          {/* previous btn */}
+          <button
+            onClick={handlePrevPage}
+            className="px-8 py-3 font-semibold rounded dark:bg-gray-800 dark:text-gray-100 outline-black outline-offset-2 outline-double active:outline-double active:outline-offset-4"
+          >
+            Prev
+          </button>
+          {/* pages number */}
+          {pages.map((page, index) => (
+            <button
+              onClick={() => setCurrentPage(page)}
+              className={` ${
+                currentPage === page
+                  ? "dark:text-gray-800 bg-gray-100"
+                  : " dark:bg-gray-800 dark:text-gray-100 "
+              } px-8 py-3 font-semibold rounded outline-black outline-offset-2 outline-double active:outline-double active:outline-offset-4`}
+              key={index}
+            >
+              {page}
+            </button>
+          ))}
+
+          {/* Next btn */}
+          <button
+            onClick={handleNextPage}
+            className="px-8 py-3 font-semibold rounded dark:bg-gray-800 dark:text-gray-100 outline-black outline-offset-2 outline-double active:outline-double active:outline-offset-4"
+          >
+            Next
+          </button>
+        </div>
+        <div>
+          <select
+            onChange={(e) => handlePerPageItem(e.target.value)}
+            className="px-8 py-3 font-semibold rounded dark:bg-gray-800 dark:text-gray-100 outline-black outline-offset-2 outline-double active:outline-double active:outline-offset-4"
+          >
+            <option value="6">6</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="35">35</option>
+          </select>
+        </div>
       </div>
     </div>
   );

@@ -29,6 +29,7 @@ const router = createBrowserRouter([
             <AvailableFoods />
           </PrivateRoute>
         ),
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/foods-count`),
       },
       {
         path: "/addFood",
