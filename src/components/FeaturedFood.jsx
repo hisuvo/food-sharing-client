@@ -31,7 +31,7 @@ export default function FeaturedFood() {
         </p>
       </div>
       {/* featured food cord */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {featuredFood.slice(0, 6).map((food) => (
           <FoodCard key={food._id} food={food} />
         ))}

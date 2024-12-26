@@ -9,7 +9,7 @@ export default function FoodCard({ food }) {
 
   return (
     <>
-      <div className="border p-4 flex flex-col">
+      <div className="border p-4 flex flex-col transition-transform hover:scale-105">
         <figure>
           <img
             className="w-full max-h-48 object-cover rounded"
