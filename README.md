@@ -1,11 +1,14 @@
-# React + Vite
+### Project URL
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- https://food-share-surplus-reduction.web.app/
 
-Currently, two official plugins are available:
+### Project perpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- The main purpose of a Food Sharing Website is to promote sustainability, reduce food waste, and foster a sense of community. Specifically, the goals include:
+
+1. Reducing Food Waste
+2. Facilitating Food Redistribution
+3. Simplifying Donation Processes
 
 ### Uses NPM Package
 
