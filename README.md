@@ -52,16 +52,16 @@ Make sure you have the following installed on your system:
      
             food-sharing-client
 
- -Install the required dependencies:
+   - Install the required dependencies:
  
-          npm install
+            npm install
 
 4. Install Backend Dependencies:
    - Navigate to the backend folder
      
             food-sharing-server
 
- -Install the required dependencies:
+   - Install the required dependencies:
  
           npm install
 5. Setup Environment Variables:
@@ -73,18 +73,19 @@ Make sure you have the following installed on your system:
            STRIPE_SECRET_KEY=your_stripe_secret_key
      
 6. Start MongoDB
-   running MongoDB:
+    running MongoDB:
  
           mongod
-7. Run the Backend Server:
+   
+8. Run the Backend Server:
    - Navigate to the backend folder:
      
             cd backend
 
- -Install the required dependencies:
+   - Install the required dependencies:
  
           npm start
- - This should start your backend server on a port like http://localhost:5000.
+  - This should start your backend server on a port like http://localhost:5000.
 
 8. Run the Frontend:
  - Navigate to the frontend folder (if not already there):
@@ -96,7 +97,7 @@ Make sure you have the following installed on your system:
         npm start
    
  - This will run the frontend on a port like http://localhost:3000.
- - 
+ 
 9. Access the Website:
 -  Open your browser and visit http://localhost:3000 to see the website running locally.
    
