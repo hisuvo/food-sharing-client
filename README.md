@@ -101,4 +101,5 @@ Make sure you have the following installed on your system:
 9. Access the Website:
 -  Open your browser and visit http://localhost:3000 to see the website running locally.
    
-## live project links :  https://food-share-surplus-reduction.web.app/
+## live project links :
+ - https://food-share-surplus-reduction.web.app/
