@@ -23,7 +23,7 @@ The Food Share Surplus Reduction website is a platform dedicated to reducing foo
   
 ## Database:
 - MongoDB (NoSQL database for storing user data, orders, and menus)
-- Payment Integration: Stripe or PayPal (for secure payment processing)
+- Payment Integration: Stripe 
 
 ## Authentication & Security:
 - JWT (for user authentication and session management)
