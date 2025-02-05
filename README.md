@@ -1,7 +1,3 @@
-### Project URL
-
-- https://food-share-surplus-reduction.web.app/
-
 ## Food Sharing
 ## Project Overview:
 The Food Share Surplus Reduction website is a platform dedicated to reducing food waste by connecting individuals and businesses with surplus food to those in need. It enables users to donate or claim excess food, helping to promote sustainability and support local communities. The website is easy to use, offering a seamless donation process, real-time updates, and a secure environment for both donors and recipients. By facilitating food sharing, it aims to reduce waste while providing access to quality food for those who need it.
