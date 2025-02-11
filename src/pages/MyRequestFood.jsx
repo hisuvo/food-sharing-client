@@ -3,6 +3,7 @@ import { AuthContext } from "../providers/AuthProviders";
 import axios from "axios";
 import toast from "react-hot-toast";
 import RequestFoodscard from "../components/RequestFoodscard";
+import LoadingComponents from "../components/LoadingComponents";
 
 export default function MyRequestFood() {
   const [requestedFoods, setRequestedFoods] = useState([]);
@@ -43,14 +44,20 @@ export default function MyRequestFood() {
               <th className="text-base ">Request Date</th>
             </tr>
           </thead>
-          <tbody>
-            {requestedFoods.map((requestFood) => (
-              <RequestFoodscard
-                key={requestFood._id}
-                requestFood={requestFood}
-              />
-            ))}
-          </tbody>
+          {requestedFoods.length > 0 ? (
+            <tbody>
+              {requestedFoods.map((requestFood) => (
+                <RequestFoodscard
+                  key={requestFood._id}
+                  requestFood={requestFood}
+                />
+              ))}
+            </tbody>
+          ) : (
+            <tbody>
+              <LoadingComponents />
+            </tbody>
+          )}
         </table>
       </div>
     </div>

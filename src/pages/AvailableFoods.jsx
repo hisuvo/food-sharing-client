@@ -3,6 +3,7 @@ import FoodCard from "../components/foodCard";
 import { TfiReload } from "react-icons/tfi";
 import axios from "axios";
 import { Link, useLoaderData } from "react-router-dom";
+import LoadingComponents from "../components/LoadingComponents";
 
 export default function AvailableFoods() {
   const [foods, setFoods] = useState([]);
@@ -97,7 +98,25 @@ export default function AvailableFoods() {
       </div>
 
       {/* available food cards */}
-      <div
+      {foods.length > 0 ? (
+        <div
+          className={`grid grid-cols-1  ${
+            layout ? "md:grid-cols-3" : "md:grid-cols-2"
+          }  gap-4`}
+        >
+          {foods.map(
+            (food) =>
+              food.status === "Available" && (
+                <FoodCard key={food._id} food={food} />
+              )
+          )}
+        </div>
+      ) : (
+        <div className="min-h-screen">
+          <LoadingComponents />
+        </div>
+      )}
+      {/* <div
         className={`grid grid-cols-1  ${
           layout ? "md:grid-cols-3" : "md:grid-cols-2"
         }  gap-4`}
@@ -108,7 +127,7 @@ export default function AvailableFoods() {
               <FoodCard key={food._id} food={food} />
             )
         )}
-      </div>
+      </div> */}
 
       {/* Pagination */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-4">

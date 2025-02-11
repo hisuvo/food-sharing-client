@@ -4,6 +4,7 @@ import { AuthContext } from "../providers/AuthProviders";
 import toast from "react-hot-toast";
 import ManageFoodsCard from "./ManageFoodsCard";
 import Swal from "sweetalert2";
+import LoadingComponents from "../components/LoadingComponents";
 
 export default function MyManageFood() {
   const [manageFoods, setManageFoods] = useState([]);
@@ -82,16 +83,23 @@ export default function MyManageFood() {
               <th className="md:text-base">Edit</th>
             </tr>
           </thead>
-          <tbody>
-            {/* manage foods card */}
-            {manageFoods.map((food) => (
-              <ManageFoodsCard
-                key={food._id}
-                food={food}
-                handleRenove={handleRenove}
-              />
-            ))}
-          </tbody>
+          {manageFoods.length > 0 ? (
+            <tbody>
+              {/* manage foods card */}
+              {manageFoods.map((food) => (
+                <ManageFoodsCard
+                  key={food._id}
+                  food={food}
+                  handleRenove={handleRenove}
+                />
+              ))}
+            </tbody>
+          ) : (
+            <tbody>
+              <LoadingComponents />
+            </tbody>
+          )}
+
           {/* foot */}
         </table>
       </div>
