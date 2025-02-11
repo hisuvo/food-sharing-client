@@ -5,7 +5,7 @@ import HelpContribute from "../components/HelpContribute";
 
 export default function Home() {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto space-y-16">
       <Carousel />
       <FeaturedFood />
       <HelpContribute />

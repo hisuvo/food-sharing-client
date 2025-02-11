@@ -18,7 +18,7 @@ import bgimg5 from "../assets/carousel5.jpg";
 
 export default function Carousel() {
   return (
-    <div className=" md:mb-32">
+    <div className=" md:mb-20">
       <div className="container mx-auto">
         <Swiper
           spaceBetween={30}

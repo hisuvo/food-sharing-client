@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import FoodCard from "./foodCard";
 import { Link } from "react-router-dom";
+import SectionHeader from "../Shared/SectionHeader";
 
 export default function FeaturedFood() {
   const [featuredFood, setFeaturedFood] = useState([]);
@@ -20,15 +21,14 @@ export default function FeaturedFood() {
   }, []);
 
   return (
-    <div className="my-16">
-      <div className="max-w-[750px] mx-auto text-center p-4 md:p-8">
-        <h2 className="text-2xl font-semibold">Featured Food Donations</h2>
-        <p className="font-light">
-          Explore the top food contributions from our generous donors. Every
-          donation helps reduce food waste and provides meals to those in need.
-          Together, we make a difference!
-        </p>
-      </div>
+    <div className="">
+      <SectionHeader
+        title={"Featured Food Donations"}
+        description={`Explore the top food contributions from our generous donors. Every
+        donation helps reduce food waste and provides meals to those in need.
+        Together, we make a difference!`}
+      />
+
       {/* featured food cord */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {featuredFood.slice(0, 6).map((food) => (

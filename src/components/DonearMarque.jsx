@@ -1,15 +1,11 @@
 import Marquee from "react-fast-marquee";
 import DonorCards from "./DonorCards";
+import SectionHeader from "../Shared/SectionHeader";
 
 export default function DonearMarque() {
   return (
-    <div className="bg-gray-50 px-2 py-4 md:py-8 lg:py-10 rounded-md my-4 md:my-10">
-      <div className="mb-8">
-        <h2 className="text-2xl uppercase text-center font-bold">
-          Our Currents{" "}
-          <span className="md:bg-black md:text-white md:p-2">Donetors</span>
-        </h2>
-      </div>
+    <div className="bg-gray-50 px-2 py-4 md:py-8 space-y-4 rounded-md">
+      <SectionHeader title={"Our current Donetors"} />
       <Marquee>
         <DonorCards />
       </Marquee>

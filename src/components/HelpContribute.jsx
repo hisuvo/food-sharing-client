@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import helpContrubuteImg from "../assets/add-food.jpg";
 export default function HelpContribute() {
   return (
-    <div className="grid grid-cols-12 px-2 gap-4 md:gap-12 my-20 md:my-28">
+    <div className="grid grid-cols-12 px-2 py-4 gap-4 md:gap-12">
       <div className="col-span-full md:col-span-5 lg:col-span-6">
         <figure>
           <img
@@ -26,7 +26,7 @@ export default function HelpContribute() {
           contribute as donors, recipients, or volunteers. Together, we break
           barriers, reduce food waste....
         </p>
-        <div className="my-4 md:my-8">
+        <div className="mt-4 md:mt-8">
           <Link to={"/addFood"}>
             <button className="px-8 py-3 font-semibold rounded dark:bg-gray-800 dark:text-gray-100 outline-black outline-offset-2 outline-double active:outline-double active:outline-offset-4">
               Donate Now

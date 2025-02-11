@@ -29,7 +29,7 @@ export default function DonorCards() {
     <div className="flex  justify-between items-center">
       {donors.map((donor) => (
         <div key={donor._id}>
-          <div className="flex justify-center bg-white border-2 items-center flex-col mx-4 p-4">
+          <div className="flex justify-center bg-gray-200 items-center flex-col mx-4 p-4">
             <figure>
               <img
                 className="w-20 h-20 rounded-full"
@@ -37,10 +37,10 @@ export default function DonorCards() {
                 alt=""
               />
             </figure>
-            <h1 className="text-xl font-bold uppercase">
+            {/* <h1 className="text-xl font-bold uppercase">
               {donor?.donor?.name}
             </h1>
-            <h3>{donor?.donor?.email}</h3>
+            <h3>{donor?.donor?.email}</h3> */}
           </div>
         </div>
       ))}
