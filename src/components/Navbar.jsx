@@ -2,6 +2,7 @@ import { useContext } from "react";
 import logo from "../assets/logo.png";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProviders";
+import ThemeToggle from "../Shared/ThemeToggle";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -48,6 +49,9 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
+              <li>
+                <ThemeToggle />
+              </li>
               <li>
                 <Link to="/addFood" className="justify-between">
                   Add Food
