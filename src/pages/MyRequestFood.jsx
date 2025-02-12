@@ -4,6 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import RequestFoodscard from "../components/RequestFoodscard";
 import LoadingComponents from "../components/LoadingComponents";
+import SectionHeader from "../Shared/SectionHeader";
 
 export default function MyRequestFood() {
   const [requestedFoods, setRequestedFoods] = useState([]);
@@ -25,17 +26,16 @@ export default function MyRequestFood() {
 
   return (
     <div className="container mx-auto md:px-2">
-      <div className="my-2 md:my-6 flex items-center gap-1">
-        <h4 className="text-base font-bold ">My Requested Foods</h4>
-        <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
-          {requestedFoods.length} request
+      <div className="my-2 md:my-6">
+        <SectionHeader title={"My Requested Foods"} />
+        <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 dark:bg-gray-900 rounded-full ">
+          {requestedFoods.length} food requested
         </span>
       </div>
-      <div className="overflow-x-auto border p-2 md:p-4 shadow-sm">
+      <div className="overflow-x-auto border dark:bg-gray-900 p-2 md:p-4 shadow-sm">
         <table className="table table-xs">
           <thead>
-            <tr>
-              <th></th>
+            <tr className="dark:text-gray-50">
               <th className="text-base ">Foods</th>
               <th className="text-base ">Donator</th>
               <th className="text-base ">Additional Notes</th>

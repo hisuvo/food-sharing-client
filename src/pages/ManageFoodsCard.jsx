@@ -23,11 +23,6 @@ export default function ManageFoodsCard({ food, handleRenove }) {
   return (
     <>
       <tr>
-        <th>
-          <label>
-            <input type="checkbox" className="checkbox" />
-          </label>
-        </th>
         <td>
           <div className="flex items-center gap-3">
             <div className="avatar">

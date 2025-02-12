@@ -16,11 +16,6 @@ export default function RequestFoodscard({ requestFood }) {
   return (
     <>
       <tr>
-        <th>
-          <label>
-            <input type="checkbox" className="checkbox" />
-          </label>
-        </th>
         {/* img and food name */}
         <td>
           <div className="flex items-center gap-3">

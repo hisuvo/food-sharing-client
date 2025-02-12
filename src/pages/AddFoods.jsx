@@ -53,9 +53,9 @@ export default function AddFoods() {
   };
 
   return (
-    <section className="p-6 dark:bg-gray-100 dark:text-gray-900">
+    <section className="p-6">
       <div className="container flex flex-col mx-auto space-y-12">
-        <div className="grid grid-cols-4 gap-10 p-6 rounded-md shadow-sm dark:bg-gray-50">
+        <div className="grid grid-cols-4 gap-10 p-6 rounded-md shadow-sm dark:bg-gray-900">
           <div className="space-y-2 col-span-full lg:col-span-1">
             <p className="font-medium text-2xl">Add Donate Foods</p>
             <p className="text-xs">
@@ -80,7 +80,7 @@ export default function AddFoods() {
                 type="text"
                 name="name"
                 placeholder="Food name here"
-                className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
+                className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 dark:bg-gray-900 focus:dark:ring-gray-600 dark:border-gray-300"
               />
             </div>
             {/* Food Photo */}
@@ -93,7 +93,7 @@ export default function AddFoods() {
                 type="url"
                 name="photo"
                 placeholder="Image url here"
-                className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
+                className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 dark:bg-gray-900 focus:dark:ring-gray-600 dark:border-gray-300"
               />
             </div>
             {/* Food Quntaty */}
@@ -107,21 +107,31 @@ export default function AddFoods() {
                   type="number"
                   name="quntaty"
                   placeholder="Food Quantaty here"
-                  className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
+                  className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 dark:bg-gray-900 focus:dark:ring-gray-600 dark:border-gray-300"
                 />
                 <select
                   defaultValue={"Unit"}
                   name="unit"
-                  className="absolute bottom-0 right-0 border-none p-4 bg-transparent"
+                  className="absolute dark:text-gray-50 bottom-0 right-0 border-none p-4 bg-transparent"
                 >
-                  <option disabled value="">
+                  <option className="text-gray-600" disabled value="">
                     Unit
                   </option>
-                  <option value="kg">kg</option>
-                  <option value="g">gram</option>
-                  <option value="ltr">ltr</option>
-                  <option value="pac">pac</option>
-                  <option value="pic">Pic</option>
+                  <option className="text-gray-600" value="kg">
+                    kg
+                  </option>
+                  <option className="text-gray-600" value="g">
+                    gram
+                  </option>
+                  <option className="text-gray-600" value="ltr">
+                    ltr
+                  </option>
+                  <option className="text-gray-600" value="pac">
+                    pac
+                  </option>
+                  <option className="text-gray-600" value="pic">
+                    Pic
+                  </option>
                 </select>
               </div>
             </div>
@@ -134,7 +144,7 @@ export default function AddFoods() {
                 type="text"
                 name="location"
                 placeholder="Location"
-                className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
+                className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 dark:bg-gray-900 focus:dark:ring-gray-600 dark:border-gray-300"
               />
             </div>
             {/* Expired Date */}
@@ -148,7 +158,7 @@ export default function AddFoods() {
                   showTimeSelect
                   dateFormat="P"
                   onChange={(date) => setStartDate(date)}
-                  className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
+                  className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 dark:bg-gray-900 focus:dark:ring-gray-600 dark:border-gray-300"
                 />
               </div>
             </div>
@@ -162,10 +172,10 @@ export default function AddFoods() {
                 type="text"
                 name="note"
                 placeholder=""
-                className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
+                className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 dark:bg-gray-900 focus:dark:ring-gray-600 dark:border-gray-300"
               />
             </div>
-            <button className="px-8 py-3 col-span-full active:bg-gray-800/90 font-semibold rounded dark:bg-gray-800 dark:text-gray-100">
+            <button className="px-8 py-3 col-span-full bg-gray-300 active:bg-gray-800/90 font-semibold rounded dark:bg-gray-800 dark:text-gray-100">
               Add Donate Food
             </button>
           </form>

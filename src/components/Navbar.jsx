@@ -7,10 +7,14 @@ import ThemeToggle from "../Shared/ThemeToggle";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   return (
-    <div className="navbar bg-base-100 shadow-sm container py-4 mx-auto">
+    <div className="navbar bg-base-100 dark:bg-gray-900 dark:text-gray-50 shadow-sm container py-4 mx-auto">
       <div className="flex-1">
-        <Link to="/" className="flex flex-col md:flex-row gap-2 items-center">
-          <img className="w-auto h-7 sm:h-8" src={logo} alt="" />
+        <Link to="/" className="flex flex-col md:flex-row gap-2 items-center ">
+          <img
+            className="w-auto h-7 sm:h-8 dark:bg-gray-50"
+            src={logo}
+            alt=""
+          />
           <h1 className="font-bold text-xl">Food</h1>
         </Link>
       </div>
@@ -20,12 +24,12 @@ const Navbar = () => {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <Link to="/availableFood">Available Foods</Link>
+            <NavLink to="/availableFood">Available Foods</NavLink>
           </li>
 
           {!user && (
             <li>
-              <Link to="/login">Login</Link>
+              <NavLink to="/login">Login</NavLink>
             </li>
           )}
         </ul>
@@ -47,21 +51,21 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 dark:bg-gray-900 rounded-box w-52"
             >
               <li>
                 <ThemeToggle />
               </li>
               <li>
-                <Link to="/addFood" className="justify-between">
+                <NavLink to="/addFood" className="justify-between">
                   Add Food
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to={`/myManageFood`}> My Manages Food </Link>
+                <NavLink to={`/myManageFood`}> My Manages Food </NavLink>
               </li>
               <li>
-                <Link to="/myRequestFood">My Food Request</Link>
+                <NavLink to="/myRequestFood">My Food Request</NavLink>
               </li>
               <li className="mt-2">
                 <NavLink to={"/login"} onClick={logOut} className="block">
