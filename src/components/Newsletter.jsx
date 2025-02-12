@@ -17,7 +17,7 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="py-12 px-4 md:px-8 bg-gray-50 dark:bg-gray-900 dark:text-gray-50 text-center">
+    <section className="py-12 px-4 md:px-8 bg-gray-50 dark:bg-gray-900/30 dark:text-gray-50 text-center">
       <SectionHeader title={"NewsLetter"} />
       <div className="max-w-xl mx-auto ">
         <h2 className="text-3xl font-semibold mb-4">

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import FoodCard from "./foodCard";
 import { Link } from "react-router-dom";
 import SectionHeader from "../Shared/SectionHeader";
+import ButtonOne from "./Button/ButtonOne";
 
 export default function FeaturedFood() {
   const [featuredFood, setFeaturedFood] = useState([]);
@@ -38,9 +39,7 @@ export default function FeaturedFood() {
       {/* see all food btn */}
       <div className="text-center my-4 md:my-8">
         <Link to={"/availableFood"}>
-          <button className="px-8 py-3 font-semibold rounded dark:bg-gray-800 dark:text-gray-100 outline-black outline-offset-2 outline-double active:outline-double active:outline-offset-4">
-            Show All
-          </button>
+          <ButtonOne text={"Show All"} />
         </Link>
       </div>
     </div>

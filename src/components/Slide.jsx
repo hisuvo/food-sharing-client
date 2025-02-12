@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ButtonOne from "./Button/ButtonOne";
 
 const Slide = ({ image, text }) => {
   return (
@@ -15,11 +16,8 @@ const Slide = ({ image, text }) => {
             {text}
           </h1>
 
-          <Link
-            to="/addFood"
-            className="px-8 py-3 font-semibold rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-100 outline-double active:outline-double active:outline-offset-4 "
-          >
-            Donate Food
+          <Link to="/addFood" className="bg-gray-50 rounded-lg">
+            <ButtonOne text={"Donate Food"} />
           </Link>
         </div>
       </div>

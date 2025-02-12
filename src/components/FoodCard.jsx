@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import { Link } from "react-router-dom";
+import ButtonTwo from "./Button/ButtonTwo";
 
 export default function FoodCard({ food }) {
   const [startDate, setStartDate] = useState(new Date(food.expireDate));
@@ -32,11 +33,8 @@ export default function FoodCard({ food }) {
             }
           </div>
         </div>
-        <Link
-          to={`/foodDetails/${_id}`}
-          className="px-8 text-center py-3 font-semibold rounded dark:bg-gray-800 dark:text-gray-100 outline-black outline-offset-2 outline-double active:outline-double active:outline-offset-4"
-        >
-          <button>view Details</button>
+        <Link to={`/foodDetails/${_id}`}>
+          <ButtonTwo text={"View Details"} />
         </Link>
       </div>
     </>
