@@ -17,7 +17,7 @@ const Slide = ({ image, text }) => {
 
           <Link
             to="/addFood"
-            className="px-8 py-3 font-semibold rounded dark:bg-gray-800 dark:text-gray-100 outline-double active:outline-double active:outline-offset-4 "
+            className="px-8 py-3 font-semibold rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-100 outline-double active:outline-double active:outline-offset-4 "
           >
             Donate Food
           </Link>

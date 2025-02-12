@@ -67,9 +67,9 @@ export default function FoodDetails() {
   return (
     <div className="container mx-auto relative ">
       {/*----------------- */}
-      <div className="max-w-[950px] mx-auto grid grid-cols-12 md:gap-8 p-6 border">
+      <div className="max-w-[950px] mx-auto grid grid-cols-12 md:gap-8 p-6 border my-8 bg-gray-50 dark:bg-gray-900">
         {/* donor information */}
-        <div className="col-span-full md:flex flex-col justify-center md:gap-4 md:border md:bg-gray-800 md:rounded-xl md:text-white items-center md:col-span-4">
+        <div className="col-span-full md:flex flex-col justify-center md:gap-4 md:border items-center md:col-span-4">
           <figure>
             <img
               className="w-full h-[10rem] object-cover dark:text-gray-600"
@@ -99,11 +99,11 @@ export default function FoodDetails() {
               className="w-full h-[14rem] object-cover rounded"
             />
           </figure>
-          <div className="flex justify-between items-center ">
+          <div className="flex flex-col md:flex-row justify-between items-center ">
             <p className="self-center text-sm">
               <span className="font-semibold">Id</span>: {_id}
             </p>
-            <span className="px-2 py-1 text-xs rounded-full dark:bg-gray-800 dark:text-gray-50">
+            <span className="px-2 py-1 badge bg-gray-900 text-gray-50">
               {status}
             </span>
           </div>
@@ -111,10 +111,10 @@ export default function FoodDetails() {
             <h1 className="text-2xl font-semibold font-mono">{name}</h1>
             <p className="text-xs">{note}</p>
           </div>
-          <div className="mt-3 flex justify-between items-center">
+          <div className=" flex flex-col md:flex-row justify-between items-center mt-4">
             <label
               htmlFor="my_modal_6"
-              className="btn right-0 px-8 py-3 active:bg-gray-800/90 font-semibold rounded dark:bg-gray-800 dark:text-gray-100"
+              className="btn right-0 px-8 py-3  active:bg-gray-800/90 font-semibold rounded bg-gray-800 text-gray-100"
             >
               Request
             </label>
@@ -122,7 +122,7 @@ export default function FoodDetails() {
               {
                 <DatePicker
                   disabled
-                  className="text-end bg-transparent"
+                  className="text-center md:text-end bg-transparent"
                   selected={startDate}
                   onChange={(expireDate) => setStartDate(expireDate)}
                 />

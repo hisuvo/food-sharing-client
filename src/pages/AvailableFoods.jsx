@@ -62,7 +62,7 @@ export default function AvailableFoods() {
       <div className="flex flex-col lg:flex-row justify-center items-center gap-2 md:gap-4 mb-4 md:mb-8 ">
         <button
           onClick={handleLaout}
-          className="btn dark:bg-gray-800 dark:text-gray-50"
+          className="btn bg-white dark:bg-gray-800 dark:text-gray-50"
         >
           Chanlge Layout
         </button>
@@ -96,7 +96,7 @@ export default function AvailableFoods() {
         {/* Reset */}
         <button
           onClick={handleReset}
-          className="btn text-2xl dark:bg-gray-800 dark:text-gray-50 font-extrabold"
+          className="btn text-2xl bg-white dark:bg-gray-800 dark:text-gray-50 font-extrabold"
         >
           {" "}
           <TfiReload />{" "}

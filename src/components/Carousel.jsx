@@ -58,24 +58,6 @@ export default function Carousel() {
           </SwiperSlide>
         </Swiper>
       </div>
-
-      {/* cards
-      <div className="relative hidden md:block max-w-[950px] mx-auto mb-20">
-        <div className="absolute -top-20 gap-4 md:gap-6 p-6 z-10 grid md:grid-cols-3">
-          <div className=" p-4 transition-transform hover:scale-105 bg-[#1F2937] flex flex-col justify-between gap-2 text-white outline outline-offset-2">
-            <h4 className="text-lg font-bold">Become a volunteer</h4>
-            <p>Volunteer: Share time, make impact for communities.</p>
-          </div>
-          <div className=" p-4 transition-transform hover:scale-105 bg-[#1F2937] flex flex-col justify-between gap-2 text-white outline outline-offset-2">
-            <h4 className="text-lg font-bold">Quick fundraising</h4>
-            <p>Fast fundraising meet goals fuel positive transformations.</p>
-          </div>
-          <div className=" p-4 transition-transform hover:scale-105 bg-[#1F2937] flex flex-col justify-between gap-2 text-white outline outline-offset-2">
-            <h4 className="text-lg font-bold">Start donating</h4>
-            <p>Alone, I can do little. Together, we can do anything.</p>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 }
