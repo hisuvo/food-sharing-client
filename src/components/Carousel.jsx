@@ -10,11 +10,11 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Slide from "./Slide";
 
-import bgimg1 from "../assets/carousel1.webp";
-import bgimg2 from "../assets/carousel2.webp";
-import bgimg3 from "../assets/carousel3.webp";
-import bgimg4 from "../assets/carousel4.jpeg";
-import bgimg5 from "../assets/carousel5.jpg";
+import bgimg1 from "../assets/slider1.jpg";
+import bgimg2 from "../assets/slider2.jpg";
+import bgimg3 from "../assets/slider3.jpg";
+import bgimg4 from "../assets/slider4.jpg";
+import bgimg5 from "../assets/slider5.jpg";
 
 export default function Carousel() {
   return (
@@ -52,9 +52,6 @@ export default function Carousel() {
           </SwiperSlide>
           <SwiperSlide>
             <Slide image={bgimg5} text="Your Extra Can Be Someone's Enough" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Slide image={bgimg4} text="Your Extra Can Be Someone's Enough" />
           </SwiperSlide>
         </Swiper>
       </div>
