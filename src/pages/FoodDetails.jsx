@@ -20,9 +20,7 @@ export default function FoodDetails() {
   useEffect(() => {
     const fetchFood = async () => {
       try {
-        const { data } = await axios.get(
-          `https://food-sharing-server-gamma.vercel.app/foods/${id}`
-        );
+        const { data } = await axios.get(`http://localhost:9500/foods/${id}`);
         setFood(data);
         setStartDate(data.expireDate);
       } catch (error) {
@@ -53,10 +51,7 @@ export default function FoodDetails() {
 
     // post request date in server
     try {
-      await axios.post(
-        `https://food-sharing-server-gamma.vercel.app/request-foods`,
-        requestData
-      );
+      await axios.post(`http://localhost:9500/request-foods`, requestData);
       toast.success("Your request done");
       navigate("/myRequestFood");
     } catch (error) {

@@ -20,7 +20,7 @@ export default function AvailableFoods() {
   useEffect(() => {
     const fetchDate = async () => {
       const { data } = await axios.get(
-        `https://food-sharing-server-gamma.vercel.app/foods?search=${search}&sort=${sort}&page=${currentPage}&size=${itemPerPage}`
+        `http://localhost:9500/foods?search=${search}&sort=${sort}&page=${currentPage}&size=${itemPerPage}`
       );
       setFoods(data);
     };

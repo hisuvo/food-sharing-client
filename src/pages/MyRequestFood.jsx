@@ -14,7 +14,7 @@ export default function MyRequestFood() {
     const fetchRequestedFood = async () => {
       try {
         const { data } = await axios.get(
-          `https://food-sharing-server-gamma.vercel.app/request-foods/${user?.email}`
+          `http://localhost:9500/request-foods/${user?.email}`
         );
         setRequestedFoods(data);
       } catch (error) {
