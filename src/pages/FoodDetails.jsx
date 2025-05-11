@@ -60,7 +60,7 @@ export default function FoodDetails() {
   };
 
   return (
-    <div className="container mx-auto relative ">
+    <div className="container mx-auto relative">
       {/*----------------- */}
       <div className="max-w-[950px] mx-auto grid grid-cols-12 md:gap-8 p-6 border my-8 bg-gray-50 dark:bg-gray-900">
         {/* donor information */}
@@ -132,7 +132,7 @@ export default function FoodDetails() {
       {/* modal of food details */}
       <input type="checkbox" id="my_modal_6" className="modal-toggle" />
       <div className="modal" role="dialog">
-        <div className="modal-box rounded-none max-w-[64rem]">
+        <div className="modal-box dark:bg-gray-800 rounded-none max-w-[64rem]">
           {/* modal close btn */}
           <div className="modal-action m-0">
             <label
@@ -163,7 +163,7 @@ export default function FoodDetails() {
               <input
                 readOnly
                 defaultValue={name}
-                className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
+                className="w-full dark:bg-gray-500 p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
               />
             </div>
 
@@ -176,7 +176,7 @@ export default function FoodDetails() {
                 readOnly
                 type="text"
                 defaultValue={_id}
-                className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
+                className="w-full dark:bg-gray-500  p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
               />
             </div>
 
@@ -189,7 +189,7 @@ export default function FoodDetails() {
                 readOnly
                 type="email"
                 defaultValue={donor?.email}
-                className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
+                className="w-full dark:bg-gray-500  p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
               />
             </div>
 
@@ -202,7 +202,7 @@ export default function FoodDetails() {
                 readOnly
                 type="text"
                 defaultValue={donor?.name}
-                className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
+                className="w-full dark:bg-gray-500 p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
               />
             </div>
 
@@ -217,7 +217,7 @@ export default function FoodDetails() {
                   type="email"
                   defaultValue={user?.email}
                   placeholder="Food Quantaty here"
-                  className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
+                  className="w-full dark:bg-gray-500  p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
                 />
               </div>
             </div>
@@ -231,7 +231,7 @@ export default function FoodDetails() {
                 readOnly
                 type="text"
                 defaultValue={location}
-                className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
+                className="w-full dark:bg-gray-500  p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
               />
             </div>
 
@@ -246,7 +246,7 @@ export default function FoodDetails() {
               <input
                 readOnly
                 defaultValue={moment().format("L, h:mm:ss a")}
-                className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
+                className="w-full dark:bg-gray-500  p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
               />
             </div>
 
@@ -262,7 +262,7 @@ export default function FoodDetails() {
                 <input
                   readOnly
                   defaultValue={expireDate}
-                  className="w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
+                  className="w-full dark:bg-gray-500  p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
                 />
               </div>
             </div>
@@ -279,7 +279,7 @@ export default function FoodDetails() {
                 type="text"
                 name="note"
                 onChange={(e) => setAdditionalNote(e.target.value)}
-                className="textarea textarea-bordered w-full p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
+                className="textarea textarea-bordered w-full dark:bg-gray-500  p-4 border rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-gray-600 dark:border-gray-300"
                 placeholder="Additional Notes Here"
               ></textarea>
             </div>
