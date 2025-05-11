@@ -1,11 +1,29 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import AdminInfoCard from "../Shared/AdminInfoCard";
 import { AuthContext } from "../providers/AuthProviders";
+import axios from "axios";
 
 const AdminDashbord = ({ title, text }) => {
+  const [allRequestFood, setAllRequestFood] = useState([]);
   const { count } = useLoaderData();
   const { user } = useContext(AuthContext);
+
+  // all request get from server
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:9500/all-request-foods"
+        );
+        setAllRequestFood(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  });
 
   return (
     <div className=" my-8 flex flex-col gap-4 justify-center items-center">
@@ -25,9 +43,12 @@ const AdminDashbord = ({ title, text }) => {
         </div>
       </div>
       <div className=" p-4 md:px-8 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <AdminInfoCard text={"24"} title={"Food Donner"}></AdminInfoCard>
+        <AdminInfoCard text={count} title={"Food Donner"}></AdminInfoCard>
 
-        <AdminInfoCard text={"45"} title={"Food Request"}></AdminInfoCard>
+        <AdminInfoCard
+          text={allRequestFood.length}
+          title={"Food Request"}
+        ></AdminInfoCard>
 
         <AdminInfoCard text={"100"} title={"Total user"}></AdminInfoCard>
       </div>
