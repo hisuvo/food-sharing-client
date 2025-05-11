@@ -26,13 +26,6 @@ const Navbar = () => {
           <li>
             <NavLink to="/availableFood">Available Foods</NavLink>
           </li>
-          {user?.email === "suvodatta72@gmail.com" ? (
-            <li>
-              <NavLink to="/admin-dashbord">Admin Dashbord</NavLink>
-            </li>
-          ) : (
-            ""
-          )}
 
           {!user && (
             <li>
@@ -60,9 +53,13 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 dark:bg-gray-900 rounded-box w-52"
             >
-              <li>
-                <ThemeToggle />
-              </li>
+              {user?.email === "suvodatta72@gmail.com" ? (
+                <li>
+                  <NavLink to="/admin-dashbord">Admin Dashbord</NavLink>
+                </li>
+              ) : (
+                ""
+              )}
               <li>
                 <NavLink to="/addFood" className="justify-between">
                   Add Food
@@ -73,6 +70,9 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink to="/myRequestFood">My Food Request</NavLink>
+              </li>
+              <li>
+                <ThemeToggle />
               </li>
               <li className="mt-2">
                 <NavLink to={"/login"} onClick={logOut} className="block">
