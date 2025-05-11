@@ -19,7 +19,7 @@ export default function MyManageFood() {
   const fetchManageFoods = async () => {
     try {
       const { data } = await axios.get(
-        `https://food-sharing-server-gamma.vercel.app/manage-foods/${user?.email}`
+        `http://localhost:9500/manage-foods/${user?.email}`
       );
       setManageFoods(data);
       console.log(data);
@@ -40,9 +40,7 @@ export default function MyManageFood() {
         confirmButtonText: "Yes, delete it!",
       }).then(async (result) => {
         if (result.isConfirmed) {
-          await axios.delete(
-            `https://food-sharing-server-gamma.vercel.app/food/${id}`
-          );
+          await axios.delete(`http://localhost:9500/food/${id}`);
           Swal.fire({
             title: "Deleted!",
             text: "Your food has been deleted.",

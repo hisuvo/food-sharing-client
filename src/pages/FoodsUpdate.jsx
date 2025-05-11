@@ -18,9 +18,7 @@ export default function FoodsUpdate() {
 
   // fetch food from server fon update
   const fetchUpdateFood = async () => {
-    const { data } = await axios.get(
-      `https://food-sharing-server-gamma.vercel.app/foods/${id}`
-    );
+    const { data } = await axios.get(`http://localhost:9500/foods/${id}`);
     setFood(data);
     setStartDate(new Date(data.expireDate));
   };
@@ -59,10 +57,7 @@ export default function FoodsUpdate() {
     // // Update Donte Food in server
     try {
       // make a put request
-      axios.put(
-        `https://food-sharing-server-gamma.vercel.app/update-foods/${id}`,
-        foodData
-      );
+      axios.put(`http://localhost:9500/update-foods/${id}`, foodData);
       //   form reset
       form.reset();
       toast.success("Food Update Successfully");

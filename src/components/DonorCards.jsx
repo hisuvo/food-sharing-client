@@ -7,9 +7,7 @@ export default function DonorCards() {
   useEffect(() => {
     const fetchFeaturedFood = async () => {
       try {
-        const { data } = await axios.get(
-          `https://food-sharing-server-gamma.vercel.app/feature-foods`
-        );
+        const { data } = await axios.get(`http://localhost:9500/feature-foods`);
         // Filter unique donors by email
         const uniqueDonors = Array.from(
           new Map(data.map((donor) => [donor?.donor?.email, donor])).values()
