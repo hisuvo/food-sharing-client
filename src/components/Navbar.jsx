@@ -26,6 +26,13 @@ const Navbar = () => {
           <li>
             <NavLink to="/availableFood">Available Foods</NavLink>
           </li>
+          {user?.email === "suvodatta72@gmail.com" ? (
+            <li>
+              <NavLink to="/admin-dashbord">Admin Dashbord</NavLink>
+            </li>
+          ) : (
+            ""
+          )}
 
           {!user && (
             <li>

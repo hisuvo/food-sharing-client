@@ -11,6 +11,7 @@ import FoodDetails from "../pages/FoodDetails";
 import MyRequestFood from "../pages/MyRequestFood";
 import MyManageFood from "../pages/MyManageFood";
 import FoodsUpdate from "../pages/FoodsUpdate";
+import AdminDashbord from "../Layouts/AdminDashbord";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,15 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AvailableFoods />
+          </PrivateRoute>
+        ),
+        loader: () => fetch(`http://localhost:9500/foods-count`),
+      },
+      {
+        path: "/admin-dashbord",
+        element: (
+          <PrivateRoute>
+            <AdminDashbord />
           </PrivateRoute>
         ),
         loader: () => fetch(`http://localhost:9500/foods-count`),
